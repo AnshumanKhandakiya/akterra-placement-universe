@@ -53,13 +53,13 @@ class OtpError(AkterraError):
 
 
 def setting(name: str, default: str = "") -> str:
-    value = os.environ.get(name)
-    if value is not None:
-        return value
     try:
-        return str(st.secrets.get(name, default))
+        value = st.secrets.get(name)
     except (AttributeError, FileNotFoundError):
-        return default
+        value = None
+    if value is not None and str(value).strip():
+        return str(value)
+    return os.environ.get(name, default)
 
 
 @st.cache_resource
