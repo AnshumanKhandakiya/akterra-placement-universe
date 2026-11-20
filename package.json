@@ -1,0 +1,15 @@
+{
+  "name": "akterra-placement-universe",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Akterra placement project welcome page and student account portal",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "nodemailer": "^6.10.0"
+  }
+}
